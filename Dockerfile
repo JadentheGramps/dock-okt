@@ -10,7 +10,6 @@ RUN yum -y install glibc32 \
     && tar -czf OktaRadius-${vers}.tgz ./etc ./opt
 
 FROM ubuntu as final
-ENV vers 2.9.3
 COPY --from=builder /temp/OktaRadius-${vers}.tgz /
 RUN yum -y install sudo \
     && groupadd OktaRadiusService \
